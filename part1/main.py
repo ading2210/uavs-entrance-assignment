@@ -2,7 +2,6 @@
 #written by Allen Ding
 
 #read the input files
-print(__file__)
 f1 = open("find.in", "r")
 inputStr = f1.read().strip()
 f1.close()
