@@ -1,9 +1,8 @@
 #Amador UAVS software entrance assignment part 1
 #written by Allen Ding
-#run with "python3 main.py"
-#find.in and find.out are in the same directory as main.py
 
-#read the input file
+#read the input files
+print(__file__)
 f1 = open("find.in", "r")
 inputStr = f1.read().strip()
 f1.close()
