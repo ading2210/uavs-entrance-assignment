@@ -1,7 +1,7 @@
 #Amador UAVS software entrance assignment part 1
 #written by Allen Ding
 
-#read the input files
+#read the input file
 f1 = open("find.in", "r")
 inputStr = f1.read().strip()
 f1.close()
