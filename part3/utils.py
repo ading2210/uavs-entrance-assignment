@@ -1,6 +1,3 @@
-#Amador UAVS software entrance assignment part 3
-#written by Allen Ding
-
 import math
 
 #class for a point

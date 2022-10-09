@@ -1,8 +1,6 @@
 #Amador UAVS software entrance assignment part 2
 #written by Allen Ding
 
-import math
-
 #read the input file
 f1 = open("rotate.in", "r")
 inputStr = f1.read().strip()
@@ -17,4 +15,3 @@ targetX = float(inputSplit[3])
 targetY = float(inputSplit[4])
 
 print(hAOV, vAOV, outputLength, targetX, targetY)
-

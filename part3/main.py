@@ -1,6 +1,3 @@
-#Amador UAVS software entrance assignment part 3
-#written by Allen Ding
-
 import utils
 from utils import Point, Segment
 
@@ -108,19 +105,27 @@ def pathfind(start, goal):
         
         #calculate neightbors
         neighbors = []
-        for x in range(max(1, current.point.x-5), min(sizeX, current.point.x+5)):
-            for y in range(max(1, current.point.y-5), min(sizeY, current.point.y+5)):
-                #make sure that we're not backtracking
-                if x == current.point.x and y == current.point.y:
-                    continue
-                
-                #check that the point doesn't intersect a polygon
-                point = Point(x, y)
-                for polygon in polygons:
-                    if (polygon.checkCollision(Segment(current.point, point))):
-                        break
-                else:
-                    neighbors.append(Node(point, current))
+        offsets = [
+            [-1, 0],
+            [-1, -1],
+            [0, -1],
+            [1, -1],
+            [1, 0],
+            [1, 1],
+            [0, 1],
+            [-1, 1]
+        ]
+        for offset in offsets:
+            point = Point(current.point.x+offset[0], current.point.y+offset[1])
+            if (point.x < 1 or point.y < 1 or point.x > sizeX or point.y > sizeY):
+                continue
+            
+            #check that the point doesn't intersect a polygon
+            for polygon in polygons:
+                if (polygon.checkCollision(Segment(current.point, point))):
+                    break
+            else:
+                neighbors.append(Node(point, current))
         
         #iterate through neighbors 
         for neighbor in neighbors:
