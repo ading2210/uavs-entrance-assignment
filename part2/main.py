@@ -23,20 +23,26 @@ targetY = float(inputSplit[4]) #y position of the target
 
 #==== perform the actual calculations ====
 #explanations for how each formula was derived is included in the attached images
+#diagram for the altitude and width calculations is located at images/aov.png
+#diagram for the roll and pitch calculations at images/roll_and_pitch.png
 
 #get the altitude that the drone should be at
+#explanation at images/altitude.png
 altitude = (outputLength/2) / math.tan(radians(vAOV/2))
 
 #get the width of the image feed after altitude adjustment
+#explanation at images/width.png
 outputWidth = 2 * (altitude * math.tan(radians(hAOV/2)))
-
-#get the desired pitch value so that the camera is looking at (x, 0)
-pitch = degrees(math.atan(targetX/altitude))
 
 #get the desired roll so that the camera is looking at (0, y)
 #it's important to flip the sign of the output since a positive roll
 #causes the camera to face a negative y value
+#explanation at images/roll.png
 roll = -degrees(math.atan(targetY/altitude))
+
+#get the desired pitch value so that the camera is looking at (x, 0)
+#explanation at images/pitch.png
+pitch = degrees(math.atan(targetX/altitude))
 
 #==== write the output values ====
 #round and convert the calculated values into a single string
