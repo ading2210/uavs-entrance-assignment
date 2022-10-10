@@ -1,2 +1,3 @@
-/part1/find.in
-/part1/find.out
+/part*/*.in
+/part*/*.out
+/part*/__pycache__
