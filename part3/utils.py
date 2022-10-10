@@ -58,10 +58,3 @@ def checkIntersect(l1, l2):
     elif (o4 == 0 and onSegment(l2, l1.p2)):
         return True
     return False
-
-#produce a hash of a point through a bitwise shift
-#negative numbers don't work but it doesn't matter 
-#since coords will never be negative
-def hashPoint(point):
-    yBitLength = int(point.y).bit_length()
-    return (int(point.x) << yBitLength) | int(point.y)

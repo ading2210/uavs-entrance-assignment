@@ -118,8 +118,9 @@ for i in range(0, polygonCount):
 #if there is no path found then None will be returned
 def pathfind(start, goal):
     openList = PriorityQueue() #a priority queue consisting of nodes to be visited
-    openList.put((0, 0, Node(start, None)))
+    openList.put((0, 0, Node(start, None))) #add starting point
     closedList = [] #a list containing a list of nodes already visited
+    steps = 0 #steps count
 
     while len(openList.queue) > 0:
         #get the node with the smallest f score        
@@ -166,6 +167,7 @@ def pathfind(start, goal):
                 if neighbor.equalTo(node):
                     break
             else:
+                #calculate g, h, and f values
                 neighbor.g = current.g + utils.distance(current.point, neighbor.point)
                 neighbor.h = utils.distance(current.point, goal)
                 neighbor.f = neighbor.g + neighbor.h
@@ -176,9 +178,9 @@ def pathfind(start, goal):
                     if neighbor.equalTo(node) and neighbor.g >= node.g:
                         break
                 else:
-                    #utils.hashPoint() is used to act as a tiebreak in case 
-                    #two priorities are the same
-                    openList.put((neighbor.f, utils.hashPoint(neighbor.point), neighbor))
+                    #step count is used as a tiebreak in case two priorities are the same
+                    steps += 1
+                    openList.put((neighbor.f, steps, neighbor))
 
 #run the pathfinding algorithm on each waypoint
 path = [waypoints[0]] #the final path to be outputted
