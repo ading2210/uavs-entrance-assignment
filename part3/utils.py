@@ -1,5 +1,9 @@
 import math
 
+#==== various utilities and classes used in the pathfinding function ==== 
+#the intersection algorithm is an implementation of the algorithm shown here:
+#https://www.geeksforgeeks.org/check-if-two-given-line-segments-intersect/
+
 #class for a point
 class Point:
     def __init__(self, x, y):
@@ -15,10 +19,6 @@ class Segment:
         self.p2 = p2
     def __repr__(self):
         return "Segment"+str({"p1": self.p1, "p2": self.p2})
-
-#check if a number is within a given range
-def inRange(num, a, b):
-    return (num >= a and num <= b) or (num <= a and num >= b)
 
 #check the orientation of a point relative to a line segment
 #-1 = right, 1 = left, 0 = colinear
@@ -59,9 +59,9 @@ def checkIntersect(l1, l2):
         return True
     return False
 
-#test code
-if __name__ == "__main__":
-    l1 = Segment(Point(0, 0), Point(6, 1))
-    l2 = Segment(Point(3, 3), Point(2, 2))
-    print(checkIntersect(l1, l2))
-    print(onSegment(l1, l2.p2))
+#produce a hash of a point through a bitwise shift
+#negative numbers don't work but it doesn't matter 
+#since coords will never be negative
+def hashPoint(point):
+    yBitLength = int(point.y).bit_length()
+    return (point.x << yBitLength) | point.y

@@ -1,6 +1,8 @@
 #Amador UAVS software entrance assignment part 1
 #written by Allen Ding
 
+#==== read and parse the input ====
+
 #read the input file
 f1 = open("find.in", "r")
 inputStr = f1.read().strip()
@@ -9,15 +11,17 @@ f1.close()
 #parse the input and extract the relavent values
 inputSplit = inputStr.split("\n")
 gridData = inputSplit[0].split(" ")
-xSize = int(gridData[0])
-ySize = int(gridData[1])
-dx = float(gridData[2])
-dy = float(gridData[3])
-count = int(gridData[4])
-pointsList = inputSplit[1:count+1]
+xSize = int(gridData[0]) #size of the grid along the x axis
+ySize = int(gridData[1]) #size of the grid along the y axis
+dx = float(gridData[2]) #grid accuracy along the x axis
+dy = float(gridData[3]) #grid accuracy along the y axis
+count = int(gridData[4]) #number of points in the input
+pointsList = inputSplit[1:count+1] #list of points as a string
 
-#initialize output variable
-output = ""
+#initialize output list
+output = [] #list containing outputted points
+
+#==== process list of points ====
 
 #iterate through each given point
 for pointStr in pointsList:
@@ -39,11 +43,16 @@ for pointStr in pointsList:
     y -= 0.01
   
   #round and add those results to the output
-  finalX = round(x)
-  finalY = round(y)
-  output += f"{finalX} {finalY}\n"
+  output.append([round(x), round(y)])
+  
+#==== write the outputted items ====
+
+#convert output list into a string
+outputString = ""
+for point in output:
+  outputString += f"{point[0]} {point[1]}\n"
 
 #write to the output file
 f2 = open("find.out", "w")
-f2.write(output.strip())
+f2.write(outputString.strip())
 f2.close()
