@@ -64,4 +64,4 @@ def checkIntersect(l1, l2):
 #since coords will never be negative
 def hashPoint(point):
     yBitLength = int(point.y).bit_length()
-    return (point.x << yBitLength) | point.y
+    return (int(point.x) << yBitLength) | int(point.y)

@@ -45,6 +45,7 @@ roll = -degrees(math.atan(targetY/altitude))
 pitch = degrees(math.atan(targetX/altitude))
 
 #==== write the output values ====
+
 #round and convert the calculated values into a single string
 outputString = "{A} {W} {R} {P}".format(
     A = round(altitude, 1),
