@@ -1,6 +1,16 @@
 #Amador UAVS software entrance assignment part 2
 #written by Allen Ding
 
+#==== input format ====
+#filename: rotate.in
+#example:
+#20.8 15.7 50 10.5 -42.6
+
+#==== output format ====
+#filename: rotate.out
+#example:
+#181.3 66.6 13.2 3.3
+
 #==== imports ====
 
 import math

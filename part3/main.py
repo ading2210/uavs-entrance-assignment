@@ -1,6 +1,32 @@
 #Amador UAVS software entrance assignment part 3
 #written by Allen Ding
 
+#==== input format ====
+#filename: navigate.in
+#example:
+#10 10 4 2
+#1 1
+#3 7
+#6 5
+#7 2
+#5
+#2 4
+#2 5
+#3 5
+#4 4
+#3 3
+#...
+
+#==== output format ====
+#filename: navigate.out
+#example:
+#1 1 
+#1 2
+#1 3
+#1 4
+#1 5
+#...
+
 #==== imports ====
 import utils
 from utils import Point, Segment

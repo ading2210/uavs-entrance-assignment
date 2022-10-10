@@ -1,6 +1,21 @@
 #Amador UAVS software entrance assignment part 1
 #written by Allen Ding
 
+#==== input format ====
+#filename: find.in
+#example:
+#8 8 0.5 0.5 3
+#2.439498 1.2343
+#0.2348973 4.587536
+#0.75 1.25
+
+#==== output format ====
+#filename: find.out
+#example:
+#5 2
+#0 7
+#1 2
+
 #==== read and parse the input ====
 
 #read the input file
