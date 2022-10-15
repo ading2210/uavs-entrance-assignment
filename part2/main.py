@@ -38,6 +38,7 @@ targetY = float(inputSplit[4]) #y position of the target
 
 #get the altitude that the drone should be at
 #explanation at images/altitude.png
+#it's important to convert from degrees to radians since math.tan assumes everything is in radians
 altitude = (outputLength/2) / math.tan(radians(vAOV/2))
 
 #get the width of the image feed after altitude adjustment
@@ -47,6 +48,7 @@ outputWidth = 2 * (altitude * math.tan(radians(hAOV/2)))
 #get the desired roll so that the camera is looking at (0, y)
 #it's important to flip the sign of the output since a positive roll
 #causes the camera to face a negative y value
+#it's also important to convert from radians to degrees since math.atan returns radians
 #explanation at images/roll.png
 roll = -degrees(math.atan(targetY/altitude))
 
