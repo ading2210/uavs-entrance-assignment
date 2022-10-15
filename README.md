@@ -5,3 +5,5 @@
 When running, make sure to cd into the directory that each program is in. Then, run `python3 main.py`.
 
 Explanations are present as code comments within the .py files. There are also images and diagrams located in `/part2/images`.
+
+An example of a generated path for part 3 is located [here](https://www.desmos.com/calculator/bsez0waehr).
